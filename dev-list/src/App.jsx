@@ -5,7 +5,8 @@ import './App.css'
 import AddCard from './components/AddCard'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [tasks, setTasks] = useState([]);
 
   return (
     <>
