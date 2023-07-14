@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-function AddCard({ taskList }) {
-  
+function AddCard() {
+
 	const [valueInput, setValueInput] = useState('');
 
 	const addTask = () => {
@@ -21,15 +21,7 @@ function AddCard({ taskList }) {
 				<button onClick={addTask}>Add Task</button>
 			</div>
 
-			<div>
-				<h1>Your Tasks List</h1>
-				{taskList.map((p) => (
-					<div key={p.id}>
-						<h3>{p.text}</h3>
-						<p>{'Ready?' + p.done == true ? 'Done' : 'Not Done'}</p>
-					</div>
-				))}
-			</div>
+			
 		</>
 	);
 }
