@@ -18,4 +18,14 @@
 	.card {
 		padding: 10px;
 	}
+
+	.task-list {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.task-list button {
+		margin: 5px;
+	}
 }
