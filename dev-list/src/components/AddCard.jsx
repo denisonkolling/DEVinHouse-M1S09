@@ -1,11 +1,11 @@
 import { useState } from 'react';
 
-function AddCard() {
+function AddCard({ taskList }) {
   
 	const [valueInput, setValueInput] = useState('');
 
 	const addTask = () => {
-    console.log(valueInput)
+		console.log(valueInput);
 	};
 
 	return (
@@ -16,15 +16,20 @@ function AddCard() {
 					className="todo-input"
 					placeholder="Write your task..."
 					type="text"
-          onChange={(e) => setValueInput(e.target.value)}
+					onChange={(e) => setValueInput(e.target.value)}
 				/>
 				<button onClick={addTask}>Add Task</button>
 			</div>
-      <div>
-        <h1>Tasks List</h1>
-        <h3>1st Task</h3>
-        <h3>2st Task</h3>
-      </div>
+
+			<div>
+				<h1>Your Tasks List</h1>
+				{taskList.map((p) => (
+					<div key={p.id}>
+						<h3>{p.text}</h3>
+						<p>{'Ready?' + p.done == true ? 'Done' : 'Not Done'}</p>
+					</div>
+				))}
+			</div>
 		</>
 	);
 }
