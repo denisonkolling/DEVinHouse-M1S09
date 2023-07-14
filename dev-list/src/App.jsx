@@ -5,6 +5,7 @@ import ListItem from './components/ListItem';
 
 function App() {
 	const [task, setTask] = useState('');
+	
 	const [listTask, setListTask] = useState([
 		{ id: 1, text: 'Create app login screen', done: false },
 		{ id: 2, text: 'Create database instance', done: true },
