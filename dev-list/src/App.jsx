@@ -12,11 +12,16 @@ function App() {
 		newList.push(task)
 		setList(newList)
 	}
+
+	const removeTask = (id) => {
+    const newList = list.filter((task) => task.id != id);
+		setList(newList)
+	};
 	
 	return (
 		<>
 			<AddCard onAddNewTask={handleAddTask}/>
-			<ListItem list={list} />
+			<ListItem list={list} removeTask={removeTask}/>
 		</>
 	);
 }
