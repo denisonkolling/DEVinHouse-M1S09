@@ -6,6 +6,12 @@ function AddCard({onAddNewTask}) {
 	const [listTask, setListTask] = useState([]);
 
 	const addNewTask = () => {
+
+		if (taskText == "") {
+			alert("Write your task at field!")
+			return
+		}
+
 		const newTask = {
 			id: listTask.length + 1,
 			text: taskText,
@@ -14,7 +20,6 @@ function AddCard({onAddNewTask}) {
 		onAddNewTask(newTask)
 		setListTask([...listTask, newTask]);
 		setTaskText('');
-		// console.log(listTask)
 	};
 
 	return (

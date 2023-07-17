@@ -11,7 +11,6 @@ function App() {
 		let newList = [...list]
 		newList.push(task)
 		setList(newList)
-		// console.log(setList)
 	}
 	
 	return (

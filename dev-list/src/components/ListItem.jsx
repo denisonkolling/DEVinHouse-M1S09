@@ -21,7 +21,6 @@ const ListItem = ({ list }) => {
 				<div className="task-list" key={task.id}>
 					<h3>{task.text}</h3>
 					<p>{task.done == true ? 'Yes!' : 'Not done!'}</p>
-					{/* <p>Btn: {done == true ? 'Finished!' : 'Not done!'}</p> */}
 					<div>
 						<button onClick={() => endTask(task.id)}>Finish</button>
 						<button onClick={() => removeTask(task.id)}>Remove</button>
