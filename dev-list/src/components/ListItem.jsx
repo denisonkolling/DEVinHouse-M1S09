@@ -1,33 +1,35 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-const ListItem = ({ taskList }) => {
+const ListItem = ({ list }) => {
 
-  let [done, setDone] = useState()
+	const [done, setDone] = useState();
 
-  const endTask = (id) => {
-    setDone(!done)
-  }
+	const endTask = (id) => {
+    const index = list.findIndex((task) => task.id === id);
+		setDone((list[index].done = !done));
+	};
 
-  const removeTask = (id) => {
-  
-  }
+	const removeTask = (id) => {
+    const index = list.findIndex((task) => task.id === id);
+    list.splice(index,1)
+	};
 
-  return (
-    <div>
-				<h1>Your Tasks List</h1>
-				{taskList.map((t) => (
-					<div className='task-list' key={t.id}>
-						<h3>{t.text}</h3>
-						<p>{t.done == true ? 'Yes!' : 'Not done!'}</p>
-            <p>Btn: {done == true ? 'Finished!' : 'Not done!'}</p>
-            <div>
-            <button onClick={() => endTask(t.id)}>Finish</button>
-            <button onClick={() => removeTask(t.id)}>Remove</button>
-            </div>
+	return (
+		<div>
+			<h1>Your Tasks List</h1>
+			{list.map((task) => (
+				<div className="task-list" key={task.id}>
+					<h3>{task.text}</h3>
+					<p>{task.done == true ? 'Yes!' : 'Not done!'}</p>
+					{/* <p>Btn: {done == true ? 'Finished!' : 'Not done!'}</p> */}
+					<div>
+						<button onClick={() => endTask(task.id)}>Finish</button>
+						<button onClick={() => removeTask(task.id)}>Remove</button>
 					</div>
-				))}
-			</div>
-  )
-}
+				</div>
+			))}
+		</div>
+	);
+};
 
-export default ListItem
+export default ListItem;

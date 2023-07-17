@@ -1,19 +1,20 @@
 import { useState } from 'react';
 
-function AddCard() {
+function AddCard({onAddNewTask}) {
 
-	const [task, setTask] = useState('');
+	const [taskText, setTaskText] = useState('');
 	const [listTask, setListTask] = useState([]);
 
 	const addNewTask = () => {
 		const newTask = {
 			id: listTask.length + 1,
-			text: task,
+			text: taskText,
 			done: false,
 		};
+		onAddNewTask(newTask)
 		setListTask([...listTask, newTask]);
-		setTask('');
-		console.log(listTask)
+		setTaskText('');
+		// console.log(listTask)
 	};
 
 	return (
@@ -24,8 +25,8 @@ function AddCard() {
 					className="todo-input"
 					placeholder="Write your task..."
 					type="text"
-					value={task}
-					onChange={(e) => setTask(e.target.value)}
+					value={taskText}
+					onChange={(e) => setTaskText(e.target.value)}
 				/>
 				<button onClick={addNewTask}>Add Task</button>
 			</div>
